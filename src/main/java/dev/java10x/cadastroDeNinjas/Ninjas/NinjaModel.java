@@ -15,7 +15,10 @@ public class NinjaModel {
     private String name;
     private String email;
     private int idade;
-    private List<Missoes> missoes;
+
+    @ManyToOne
+    @JoinColumn(name = "missoes_id") // Um NINJA para UMA missao
+    private Missoes missoes;
 
     private double pontosXp = 0;
 
@@ -61,11 +64,5 @@ public class NinjaModel {
         return pontosXp;
     }
 
-    public void setMissoes(List<Missoes> missoes) {
-        this.missoes = missoes;
-    }
 
-    public List<Missoes> getMissoes() {
-        return missoes;
-    }
 }
